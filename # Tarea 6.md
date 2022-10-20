@@ -7,8 +7,11 @@ eficiente pero en el cual se requiere SQL Server, por el momento lo solucione co
 cuantiles, yo me fui mas por obtener los percentiles de la tabla. La informacion obtenida se puede observar en estos links:
 
 https://www.mysqltutorial.org/mysql-window-functions/mysql-percent_rank-function/
+
 https://www.mytecbits.com/microsoft/sql-server/how-to-calculate-statistical-mode
+
 https://estradawebgroup.com/Post/-Como-obtener-el-promedio-en-SQL-Server-con-la-funcion-AVG---/20369
+
 https://stackoverflow.com/questions/19770026/calculate-percentile-value-using-mysql
 
 
@@ -29,6 +32,8 @@ avg(Daño) as Promedio_Daño,
 avg(Primera_Sangre) as Promedio_PrimeraSangre 
 from scoresf group by ID_Juegos order by ID_Juegos;
 
+![img](../../../../Test/Test/promedio.png)
+
 select ID_Partido,
 avg(total_kills) as Promedio_Kills, 
 avg(Total_Deaths) as Promedio_Deaths,
@@ -38,6 +43,8 @@ avg(Highest_Streak) as Promedio_Streak,
 avg(Daño) as Promedio_Daño,
 avg(Primera_Sangre) as Promedio_PrimeraSangre 
 from scoresf group by ID_Partido order by ID_Partido;
+
+![img](../../../../Test/Test/prom%20part.png)
 
 select ID_Juegos,
 max(total_kills) as Maximo_Kills, 
@@ -49,6 +56,8 @@ max(Daño) as Maximo_Daño,
 max(Primera_Sangre) as Maximo_PrimeraSangre 
 from scoresf group by ID_Juegos order by ID_Juegos;
 
+![img](../../../../Test/Test/max%20juegos.png)
+
 select ID_Partido,
 max(total_kills) as Maximo_Kills, 
 max(Total_Deaths) as Maximo_Deaths,
@@ -59,8 +68,15 @@ max(Daño) as Maximo_Daño,
 max(Primera_Sangre) as Maximo_PrimeraSangre 
 from scoresf group by ID_Partido order by ID_Partido;
 
+![imag](../../../../Test/Test/max%20part.png)
+
 select Total_Kills, count(Total_Kills) as Moda from scoresf group by Total_Kills order by Moda desc limit 1;
+
+![img](../../../../Test/Test/moda.png)
+
 select Total_kills, ID_Jugador, round(percent_rank()over( order by Id_Jugador),2)percentile_rank from scoresf;
+
+![img](../../../../Test/Test/percentil..png)
 
 ```En proceso```
 select Total_Kills, count(*) as Cuenta from scoresf group by Total_Kills;
